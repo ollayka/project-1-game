@@ -1,5 +1,5 @@
-const HEIGHT = 350;
-const WIDTH = 600;
+const HEIGHT = 300;
+const WIDTH = 500;
 const GRAVITY = 0.2;
 
 let berliner;
