@@ -1,12 +1,19 @@
 class Game {
   constructor() {
+    this.level = 1;
     this.background = new Background();
     this.player = new Player();
     this.obstacles = [];
     this.prizes = [];
     this.score = 0;
-    this.time = 60;
+    this.time = 10;
     this.life = 3;
+    this.gameover = new GameOver();
+    this.gamewon = new GameWon();
+  }
+
+  setup() {
+    levels = [];
   }
 
   draw() {
@@ -28,6 +35,15 @@ class Game {
       }
     });
 
+    //game over scenario
+    if (this.life === 0) {
+      clear();
+      this.gameover.draw();
+      this.obstacles = [];
+      this.prizes = [];
+      noLoop();
+    }
+
     //prizes
     if (frameCount % 120 === 0) {
       this.prizes.push(new Prize());
@@ -43,6 +59,13 @@ class Game {
     });
 
     //super bonus
+
+    //time's up
+    if (this.time === 0) {
+      clear();
+      this.gamewon.draw();
+      noLoop();
+    }
   }
 
   keyPressed() {
@@ -73,4 +96,18 @@ class Game {
       isTouchingOnTop
     );
   }
+
+  //timer
+  startCounting() {
+    let levelTime = setInterval(() => {
+      this.time--;
+      time.innerText = this.time;
+      if (this.time === 0) {
+        clearInterval(levelTime);
+      }
+    }, 1000);
+  }
+
+  //next level
+  // newLevel();
 }
