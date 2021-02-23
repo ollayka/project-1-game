@@ -8,6 +8,14 @@ class Prize {
 
   draw() {
     this.x -= 3;
-    image(paperwork, this.x, this.y, this.width, this.height);
+    image(prizesArr[level], this.x, this.y, this.width, this.height);
   }
 }
+
+// class Bonus extends Prize {
+//   constructor() {}
+//   draw() {
+//     this.x -= 4;
+//     image(anmeldung, this.x, this.y, this.width, this.height);
+//   }
+// }

@@ -3,7 +3,7 @@ class GameWon {
 
   draw() {
     background("orange");
-    text(`Congrats! Your score is`, 100, 100);
+    text(`Congrats! Your score is ${score}`, 100, 100);
   }
 }
 

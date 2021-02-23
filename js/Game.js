@@ -1,6 +1,5 @@
 class Game {
   constructor() {
-    this.level = 1;
     this.background = new Background();
     this.player = new Player();
     this.obstacles = [];
@@ -10,14 +9,24 @@ class Game {
     this.life = 3;
     this.gameover = new GameOver();
     this.gamewon = new GameWon();
+    this.nextLevel = null;
   }
 
   setup() {
-    levels = [];
+    prizesArr = [paperwork, friend, language, language];
+    obstaclesArr = [officer, ghost, ghost, ghost];
   }
 
   draw() {
+    //
+    if (this.nextLevel) {
+      return this.nextLevel.draw();
+    }
+
+    //backround
     this.background.draw();
+
+    //player
     this.player.draw();
 
     //obstacles
@@ -25,15 +34,41 @@ class Game {
       this.obstacles.push(new Obstacle());
     }
 
+    //obstacles collisions
     this.obstacles.forEach((obstacle, index) => {
       obstacle.draw();
+
+      //player lose life
       if (this.collisionCheck(this.player, obstacle)) {
         console.log("COLLISION!");
         this.obstacles.splice(index, 1);
         this.life--;
         life.innerText = this.life;
       }
+
+      //obstacle-prize collision
+      if (this.collisionCheck(this.obstacles, this.prizes)) {
+        this.obstacles.splice(index, 1);
+      }
     });
+
+    //prizes
+    if (frameCount % 120 === 0) {
+      this.prizes.push(new Prize());
+    }
+
+    //prizes collisions
+    this.prizes.forEach((prize, index) => {
+      prize.draw();
+      //get points
+      if (this.collisionCheck(this.player, prize)) {
+        this.prizes.splice(index, 1);
+        this.score += 10;
+        score.innerText = this.score;
+      }
+    });
+
+    //super bonus
 
     //game over scenario
     if (this.life === 0) {
@@ -44,27 +79,12 @@ class Game {
       noLoop();
     }
 
-    //prizes
-    if (frameCount % 120 === 0) {
-      this.prizes.push(new Prize());
-    }
-
-    this.prizes.forEach((prize, index) => {
-      prize.draw();
-      if (this.collisionCheck(this.player, prize)) {
-        this.prizes.splice(index, 1);
-        this.score += 10;
-        score.innerText = this.score;
-      }
-    });
-
-    //super bonus
-
-    //time's up
+    //level up
     if (this.time === 0) {
-      clear();
-      this.gamewon.draw();
-      noLoop();
+      level++;
+      this.nextLevel = new LevelUp(this.player, this.score, this.life);
+      this.nextLevel.startCounting();
+      this.nextLevel.draw();
     }
   }
 
@@ -107,7 +127,14 @@ class Game {
       }
     }, 1000);
   }
+}
 
-  //next level
-  // newLevel();
+class LevelUp extends Game {
+  constructor(player, score, life) {
+    super();
+    this.player = player;
+    this.score = score;
+    this.life = life;
+    this.level = level;
+  }
 }
