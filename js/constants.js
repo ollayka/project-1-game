@@ -27,3 +27,6 @@ let backgroundsArr;
 let obstaclesArr;
 let prizesArr;
 let bonusesArr;
+
+//end game
+let playAgainButton;

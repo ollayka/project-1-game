@@ -5,7 +5,7 @@ class Game {
     this.obstacles = [];
     this.prizes = [];
     this.score = 0;
-    this.time = 10;
+    this.time = 60;
     this.life = 3;
     this.gameover = new GameOver();
     this.gamewon = new GameWon();

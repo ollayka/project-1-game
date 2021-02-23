@@ -1,4 +1,55 @@
+body {
+  font-family: "VT323", monospace;
+  font-size: 26px;
+}
+
+.game-top {
+  width: 485px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.game-info {
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .game-intro {
   height: 300px;
   width: 500px;
+  background-color: cyan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-intro h2 {
+  font-size: 32px;
+  margin: 0px;
+  padding: 10px;
+}
+
+.game-intro p {
+  font-size: 18px;
+  text-align: center;
+  margin: 0px;
+  padding: 0 5px;
+}
+
+.instructions {
+  width: 80%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#start-button {
+  background-color: white;
+  font-family: "VT323", monospace;
+  font-size: 22px;
 }
