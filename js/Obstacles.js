@@ -2,8 +2,8 @@ class Obstacle {
   constructor() {
     this.x = WIDTH;
     this.y = random(100, 200);
-    this.width = 50;
-    this.height = 50;
+    this.width = 60;
+    this.height = 60;
   }
 
   draw() {

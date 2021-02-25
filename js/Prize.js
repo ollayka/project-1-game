@@ -2,8 +2,8 @@ class Prize {
   constructor() {
     this.x = WIDTH;
     this.y = random(0, 250);
-    this.width = 50;
-    this.height = 50;
+    this.width = 60;
+    this.height = 60;
   }
 
   draw() {
@@ -12,10 +12,16 @@ class Prize {
   }
 }
 
-// class Bonus extends Prize {
-//   constructor() {}
-//   draw() {
-//     this.x -= 4;
-//     image(anmeldung, this.x, this.y, this.width, this.height);
-//   }
-// }
+class Bonus {
+  constructor() {
+    this.x = WIDTH;
+    this.y = random(0, 250);
+    this.width = 70;
+    this.height = 70;
+  }
+
+  draw() {
+    this.x -= 3;
+    image(bonusesArr[level], this.x, this.y, this.width, this.height);
+  }
+}

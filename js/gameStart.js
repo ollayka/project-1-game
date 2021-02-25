@@ -5,5 +5,6 @@ function gameStart() {
       document.querySelector(".game-intro").style.display = "none";
       game.startCounting();
       startGame = true;
+      introAudio.play();
     });
 }

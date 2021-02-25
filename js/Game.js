@@ -4,17 +4,21 @@ class Game {
     this.player = new Player();
     this.obstacles = [];
     this.prizes = [];
+    this.bonuses = [];
     this.score = 0;
-    this.time = 60;
-    this.life = 3;
-    this.gameover = new GameOver();
-    this.gamewon = new GameWon();
+    this.time = 20;
+    this.life = 100;
+    this.bonusTime = Math.floor(Math.random() * 1000);
+    this.gameOver = new GameOver();
+    this.gameWon = new GameWon();
+    this.gameEnd = new GameEnd();
     this.nextLevel = null;
   }
 
   setup() {
-    prizesArr = [paperwork, friend, language, language];
-    obstaclesArr = [officer, ghost, ghost, ghost];
+    prizesArr = [paperwork, friends, bubble, beer];
+    obstaclesArr = [burocracy, ghost, german, bouncer];
+    bonusesArr = [anmeldung, heart, star, berghain];
   }
 
   draw() {
@@ -40,7 +44,6 @@ class Game {
 
       //player lose life
       if (this.collisionCheck(this.player, obstacle)) {
-        console.log("COLLISION!");
         this.obstacles.splice(index, 1);
         this.life--;
         life.innerText = this.life;
@@ -69,22 +72,55 @@ class Game {
     });
 
     //super bonus
+    if (frameCount % this.bonusTime === 0) {
+      this.bonuses.push(new Bonus());
+    }
+
+    this.bonuses.forEach((bonus, index) => {
+      bonus.draw();
+      if (this.collisionCheck(this.player, bonus)) {
+        this.bonuses.splice(index, 1);
+        this.score += 50;
+        score.innerText = this.score;
+        this.life += 1;
+        life.innerText = this.life;
+      }
+
+      // game win scenario
+      if (level === 3 && this.collisionCheck(this.player, bonus)) {
+        clear();
+        this.gameWon.draw();
+        this.obsctacles = [];
+        this.prizes = [];
+        noLoop();
+      }
+    });
+
+    //level up
+    if (level < 3 && this.time === 0) {
+      level++;
+      levelDisplay.innerText = level;
+      this.nextLevel = new LevelUp(this.player, this.score, this.life);
+      this.nextLevel.startCounting();
+      this.nextLevel.draw();
+    }
+
+    //game end scenario
+    // if (level === 3 && this.time === 0) {
+    //   clear();
+    //   this.gameEnd.draw();
+    //   this.obstacles = [];
+    //   this.prizes = [];
+    //   noLoop();
+    // }
 
     //game over scenario
     if (this.life === 0) {
       clear();
-      this.gameover.draw();
+      this.gameOver.draw();
       this.obstacles = [];
       this.prizes = [];
       noLoop();
-    }
-
-    //level up
-    if (this.time === 0) {
-      level++;
-      this.nextLevel = new LevelUp(this.player, this.score, this.life);
-      this.nextLevel.startCounting();
-      this.nextLevel.draw();
     }
   }
 

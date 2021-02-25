@@ -2,9 +2,9 @@ class Player {
   constructor() {
     this.x = 50;
     this.y = 50;
-    this.width = 50;
-    this.height = 50;
-    this.floor = 210;
+    this.width = 60;
+    this.height = 110;
+    this.floor = 180;
     this.velocity = 0;
     this.jumpCount = 0;
   }

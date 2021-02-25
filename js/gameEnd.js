@@ -7,3 +7,8 @@ class GameOver {
   constructor() {}
   draw() {}
 }
+
+class GameEnd {
+  constructor() {}
+  draw() {}
+}

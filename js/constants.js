@@ -4,19 +4,27 @@ const GRAVITY = 0.2;
 const score = document.querySelector(".score-counter");
 const time = document.querySelector(".time-counter");
 const life = document.querySelector(".life-counter");
+const levelDisplay = document.querySelector(".level");
+
+//audio
+const introAudio = document.querySelector(".intro-audio");
 
 let berliner;
 //obstacles
-let officer;
+let burocracy;
 let ghost;
 let german;
+let bouncer;
 //prizes
 let paperwork;
-let friend;
-let language;
-//bonuses
+let friends;
+let bubble;
+let beer;
+//bonus
 let anmeldung;
-let love;
+let heart;
+let star;
+let berghain;
 //backgrounds
 let lvlOneImage;
 let lvlTwoImage;
@@ -30,3 +38,5 @@ let bonusesArr;
 
 //end game
 let playAgainButton;
+
+//audio

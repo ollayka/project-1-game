@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genau</title>
+    <title>Genau!</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/addons/p5.sound.min.js"></script>
 <link rel="stylesheet" href="style.css">
@@ -24,13 +24,43 @@
         <h2>How to play?</h2>
         <p>Landing as an expat in Berlin ain't easy. Beat the burocracy, find your people, and learn how to <i>der die das</i> – who knows, maybe you'll even get into Berghain?</p>
         <div class="instructions">
-            <article>Collect</article>
-        <article>Avoid</article>
-        <article>Commands</article>
+            <article>
+                <h4>Catch</h4>
+                <div class="icons">
+                    <img src="./images/document.png" alt="document icon">
+                    <img src="./images/friends.png" alt="friends icon">
+                    <br>
+                    <img src="./images/bubble.png" alt="der die das icon">
+                    <img src="./images/beer.png" alt="beer icon">
+                </div>
+            </article>
+            <article class="icons">
+                <h4>Avoid</h4>
+                <div>
+                    <img src="./images/burocracy.png" alt="burocracy icon">
+                    <img src="./images/ghost.png" alt="ghost icon">
+                    <br>
+                    <img src="./images/german.png" alt="german icon">
+                    <img src="./images/sven.png" alt="bouncer icon">
+                </div>
+            </article>
+            <article class="icons">
+                <h4>Bonuses</h4>
+                <div>
+                    <img src="./images/anmeldung.png" alt="anmeldung icon">
+                    <img src="./images/heart.png" alt="heart icon">
+                    <br>
+                    <img src="./images/star.png" alt="star icon">
+                    <img src="./images/berghain.png" alt="club icon">
+                </div>
+            </article>
         </div>
         <button id="start-button">Let's go!</button>
+        <audio class="intro-audio">
+            <source src="./sounds/audio_level1.mp3">
+        </audio>
     </div>
-    
+    <p>Level: <span class="level">0</span></p> 
     <script src="js/gameStart.js"></script>
     <script src="js/assets.js"></script>
     <script src="js/constants.js"></script>

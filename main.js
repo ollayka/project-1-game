@@ -1,32 +1,35 @@
 let level = 0;
 const game = new Game();
+// const club = new Berghain();
 let startGame = false;
 
 function preload() {
-  //player
-  berliner = loadImage("./images/TEMP_hipster.png");
+  //player - done
+  berliner = loadImage("./images/player.png");
 
-  //backgrounds
+  //backgrounds - done
   lvlOneImage = loadImage("./images/office.png");
-  lvlTwoImage = loadImage("./images/school.png");
-  lvlThreeImage = loadImage("./images/park.png");
-  lvlFourImage = loadImage("./images/club.png");
+  lvlTwoImage = loadImage("./images/park.png");
+  lvlThreeImage = loadImage("./images/school.png");
+  lvlFourImage = loadImage("./images/club_alt.png");
 
   //obstacles
-  officer = loadImage("./images/TEMP_officer.png");
-  ghost = loadImage("./images/TEMP_ghost.png");
-  german = loadImage("./images/TEMP_ghost.png");
-  // bouncer
+  burocracy = loadImage("./images/burocracy.png");
+  ghost = loadImage("./images/ghost.png");
+  german = loadImage("./images/german.png");
+  bouncer = loadImage("./images/sven.png");
 
   //things to collect
-  paperwork = loadImage("./images/TEMP_document.png");
-  friend = loadImage("./images/TEMP_coolperson.png");
-  language = loadImage("./images/TEMP_speaking.png");
+  paperwork = loadImage("./images/document.png");
+  friends = loadImage("./images/friends.png");
+  bubble = loadImage("./images/bubble.png");
+  beer = loadImage("./images/beer.png");
 
-  //special bonuses
-  anmeldung = loadImage("./images/TEMP_anmeldung.png");
-  love = loadImage("./images/TEMP_love.png");
-  // trophy = loadImage("./images/");
+  //special bonus
+  anmeldung = loadImage("./images/anmeldung.png");
+  heart = loadImage("./images/heart.png");
+  star = loadImage("./images/star.png");
+  berghain = loadImage("./images/berghain.png");
 }
 
 function draw() {
