@@ -4,7 +4,6 @@ const GRAVITY = 0.2;
 const score = document.querySelector(".score-counter");
 const time = document.querySelector(".time-counter");
 const life = document.querySelector(".life-counter");
-const levelDisplay = document.querySelector(".level");
 
 //audio
 const introAudio = document.querySelector(".intro-audio");
@@ -40,3 +39,9 @@ let bonusesArr;
 let playAgainButton;
 
 //audio
+
+//game end
+let dog;
+let congrats;
+let heute;
+let replayButton;

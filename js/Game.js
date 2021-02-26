@@ -6,9 +6,9 @@ class Game {
     this.prizes = [];
     this.bonuses = [];
     this.score = 0;
-    this.time = 20;
-    this.life = 100;
-    this.bonusTime = Math.floor(Math.random() * 1000);
+    this.time = 30;
+    this.life = 5;
+    this.bonusTime = Math.floor(Math.random() * 5000);
     this.gameOver = new GameOver();
     this.gameWon = new GameWon();
     this.gameEnd = new GameEnd();
@@ -99,20 +99,19 @@ class Game {
     //level up
     if (level < 3 && this.time === 0) {
       level++;
-      levelDisplay.innerText = level;
       this.nextLevel = new LevelUp(this.player, this.score, this.life);
       this.nextLevel.startCounting();
       this.nextLevel.draw();
     }
 
     //game end scenario
-    // if (level === 3 && this.time === 0) {
-    //   clear();
-    //   this.gameEnd.draw();
-    //   this.obstacles = [];
-    //   this.prizes = [];
-    //   noLoop();
-    // }
+    if (level === 3 && time === 0) {
+      clear();
+      this.gameEnd.draw();
+      this.obstacles = [];
+      this.prizes = [];
+      noLoop();
+    }
 
     //game over scenario
     if (this.life === 0) {

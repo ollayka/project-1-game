@@ -1,6 +1,5 @@
 let level = 0;
 const game = new Game();
-// const club = new Berghain();
 let startGame = false;
 
 function preload() {
@@ -30,6 +29,11 @@ function preload() {
   heart = loadImage("./images/heart.png");
   star = loadImage("./images/star.png");
   berghain = loadImage("./images/berghain.png");
+
+  //other
+  dog = loadImage("./images/dog.png");
+  congrats = loadImage("./images/congrats.jpg");
+  heute = loadImage("./images/heute.png");
 }
 
 function draw() {
@@ -45,6 +49,7 @@ function setup() {
 }
 
 gameStart();
+// gameRestart();
 
 function keyPressed() {
   game.keyPressed();

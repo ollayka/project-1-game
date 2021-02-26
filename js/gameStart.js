@@ -8,3 +8,9 @@ function gameStart() {
       introAudio.play();
     });
 }
+
+// function gameRestart() {
+//   game.startCounting();
+//   startGame = true;
+//   introAudio.play();
+// }
